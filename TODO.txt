@@ -1,0 +1,42 @@
+UTILISATEURS :
+    - groupes 
+    - personnes
+    - associations organisant des concerts
+    - salles de concerts
+
+UTILISATEUR PEUT SUIVRE OU ÊTRE AMI AVEC UNE AUTRE ENTITÉ DU RESEAU.
+UTILISATEUR A PEUT SUIVRE B SANS B SUIVE A.
+UTILISATEUR PEUT ANNONCER DES CONCERTS.
+
+CONCERT:
+    - lieu si connu et légal
+    - prix
+    - organisateurs
+    - line-up
+    - nombres de places disponibles
+    - besoin en volontaires
+    - cause en soutien duquel le concert aura lieu
+    - espace extérieur
+    - possibilité d'emmener ses enfants
+
+UTILISATEUR PEUT INDIQUER ÊTRE INTERESSE OU PARTICIPE A UN EVENEMENT.
+-> pas les deux a la fois
+
+CONCERT AYANT EU LIEU PEUT ÊTRE ARCHIVE:
+- nombre de personnes ayant participé
+- avis des participants
+- photos
+- videos
+
+UTILISATEUR PEUT DONNER SON AVIS SUR UN EVENEMENT OU UNE ENTITE.
+-> notes
+-> commentaires
+
+MOTS CLES:
+-> taguer les groupes, lieux, evenements
+-> genres musicaux, sous genres 
+
+GENRE MUSICAUX ET SOUS GENRE
+
+UTILISATEUR PEUT AFFICHER PLAYLIST SUR SON PROFIL (10 MAX, 20 morceaux par playlist)
+-> avis sur ces playlists
