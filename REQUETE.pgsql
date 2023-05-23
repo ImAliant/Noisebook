@@ -12,7 +12,7 @@
    
 
     -- Nom des artistes ayant un morcequ qui existe dans au moins 7 playlists diffrentes
-    SELECT DISTINCT Artiste.nom FROM Artistes a
+    SELECT DISTINCT Artistes.nom FROM Artistes a
      JOIN Morceaux m ON a.aid = m.artiste 
      JOIN Playlist_Morceaux pm ON m.mid = pm.mid GROUP BY a.nom 
      HAVING COUNT(DISTINCT pm.pid) >= 7 ;
@@ -113,7 +113,7 @@ ici (vos données devront donc contenir quelques nulls), vous proposerez égalem
 (dans l’esprit de ce qui sera présenté dans le cours sur l’information incomplète) afin qu’elles retournent le même résultat ; */
     -- meme resultat si pas de nulls
     SELECT * FROM TourneeDates where tournee >=1 OR concert IS NULL;
-    SELECT * from TourneeDates where concert IS NOT NULL 
+    SELECT * from TourneeDates where concert IS NOT NULL ;
     --si "tournee" peut etre NULL alors la 1ere requete renvoie les NULL et les NON NULL alors que la 2eme ne renvoie que les NON NULL
     
 /* une requête récursive (par exemple, une requête permettant de calculer quel est le prochain jour off d’un groupe actuellement 
