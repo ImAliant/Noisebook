@@ -137,7 +137,7 @@ connaître leur prochain jour off, qui est donc le 06/03. */
         WHERE TourneeDates.date > ToutesLesDates.date
 
     )
-    SELECT date FROM ToutesLesdates ORDER BY date;
+    SELECT DISTINCT date FROM ToutesLesdates ORDER BY date;
 
 /* une requête utilisant du fenêtrage (par exemple, pour chaque mois de 2022, les dix groupes dont les concerts ont eu le plus de succès 
 ce mois-ci, en termes de nombre d’utilisateurs ayant indiqué souhaiter y participer). */
