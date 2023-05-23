@@ -25,6 +25,11 @@ DROP TABLE IF EXISTS Tournee CASCADE;
 DROP TABLE IF EXISTS TourneeDates CASCADE;
 DROP TABLE IF EXISTS artistes CASCADE;
 
+DROP TYPE IF EXISTS type_participation CASCADE;
+DROP TYPE IF EXISTS type_user CASCADE;
+DROP TYPE IF EXISTS type_relation CASCADE;
+DROP TYPE IF EXISTS type_avis CASCADE;
+
 CREATE TYPE type_participation AS ENUM ('participe', 'interesse');
 CREATE TYPE type_user as ENUM('particulier', 'association', 'artiste', 'groupe');
 CREATE TYPE type_relation AS ENUM ('follow', 'friend');
