@@ -1,6 +1,29 @@
 --- CREATION DES TABLES ---
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
+DROP TABLE IF EXISTS Avis_Concert;
+DROP TABLE IF EXISTS Avis_Playlist;
+DROP TABLE IF EXISTS Avis_Morceaux;
+DROP TABLE IF EXISTS Avis_Groupes;
+DROP TABLE IF EXISTS Avis_Artistes;
+DROP TABLE IF EXISTS Avis;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Groupes;
+DROP TABLE IF EXISTS Relation;
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS Sous_genre;
+DROP TABLE IF EXISTS Lineup;
+DROP TABLE IF EXISTS Concert;
+DROP TABLE IF EXISTS Organise_concert;
+DROP TABLE IF EXISTS Archiver;
+DROP TABLE IF EXISTS Archive;
+DROP TABLE IF EXISTS Tags;
+DROP TABLE IF EXISTS Create_playlist;
+DROP TABLE IF EXISTS Playlist;
+DROP TABLE IF EXISTS Playlist_morceaux;
+DROP TABLE IF EXISTS Morceaux;
+DROP TABLE IF EXISTS Participer;
+DROP TABLE IF EXISTS Tournee;
+DROP TABLE IF EXISTS TourneeDates;
+DROP TABLE IF EXISTS artistes;
 
 CREATE TYPE type_participation AS ENUM ('participe', 'interesse');
 CREATE TYPE type_user as ENUM('particulier', 'association', 'artiste', 'groupe');
