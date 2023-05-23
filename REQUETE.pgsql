@@ -12,7 +12,7 @@
    
 
     -- Nom des artistes ayant un morcequ qui existe dans au moins 7 playlists diffrentes
-    SELECT DISTINCT Artistes.nom FROM Artistes a
+    SELECT DISTINCT a.nom FROM Artistes a
      JOIN Morceaux m ON a.aid = m.artiste 
      JOIN Playlist_Morceaux pm ON m.mid = pm.mid GROUP BY a.nom 
      HAVING COUNT(DISTINCT pm.pid) >= 7 ;
@@ -128,7 +128,7 @@ connaître leur prochain jour off, qui est donc le 06/03. */
         SELECt tid,tournee,concert,date 
         FROM TourneeDates 
         WHERE tournee = ( 
-            SELECT tid FROM Tournee WHERE artiste = 'Madonna'
+            SELECT tid FROM Tournee WHERE artiste = 9
         )
         UNION ALL
         SELECT TourneeDates.tid,TourneeDates.tournee,TourneeDates.concert,TourneeDates.date
