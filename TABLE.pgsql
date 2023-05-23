@@ -3,14 +3,14 @@ DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
 CREATE TYPE type_participation AS ENUM ('participe', 'interesse');
-CREATE TYPE type_user as ENUM('particulier', 'association', 'artiste', 'groupes');
+CREATE TYPE type_user as ENUM('particulier', 'association', 'artiste', 'groupe');
 CREATE TYPE type_relation AS ENUM ('follow', 'friend');
 CREATE TYPE type_avis AS ENUM ('concert', 'playlist', 'morceaux', 'groupes', 'artistes');
 
 CREATE TABLE Tags
 (
     tid SERIAL PRIMARY KEY,
-    tag varchar(50) NOT NULL
+    nom_tag varchar(50) NOT NULL
 );
 
 CREATE TABLE Avis_Concert(
@@ -18,42 +18,48 @@ CREATE TABLE Avis_Concert(
     concert INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
     note INTEGER CHECK(note >= 0 AND note <= 5) NOT NULL,
-    commentaire text NOT NULL
+    commentaire text NOT NULL,
+    type_avis type_avis DEFAULT 'concert' NOT NULL
 );
 CREATE TABLE Avis_Playlist(
     aid SERIAL PRIMARY KEY,
     playlist INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
     note INTEGER CHECK(note >= 0 AND note <= 5) NOT NULL,
-    commentaire text NOT NULL
+    commentaire text NOT NULL,
+    type_avis type_avis DEFAULT 'playlist' NOT NULL
 );
 CREATE TABLE Avis_Morceaux(
     aid SERIAL PRIMARY KEY,
     morceau INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
     note INTEGER CHECK(note >= 0 AND note <= 5) NOT NULL,
-    commentaire text NOT NULL    
+    commentaire text NOT NULL,
+    type_avis type_avis DEFAULT 'morceaux' NOT NULL
 );
 CREATE TABLE Avis_Groupes(
     aid SERIAL PRIMARY KEY,
     groupe INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
     note INTEGER CHECK(note >= 0 AND note <= 5) NOT NULL,
-    commentaire text NOT NULL
+    commentaire text NOT NULL,
+    type_avis type_avis DEFAULT 'groupes' NOT NULL
 );
 CREATE TABLE Avis_Artistes(
     aid SERIAL PRIMARY KEY,
     artiste INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
     note INTEGER CHECK(note >= 0 AND note <= 5) NOT NULL,
-    commentaire text NOT NULL
+    commentaire text NOT NULL,
+    type_avis type_avis DEFAULT 'artistes' NOT NULL
 );
 
 CREATE TABLE Avis (
-    aid SERIAL PRIMARY KEY,
-    avis_id INTEGER NOT NULL,
+    aid INTEGER NOT NULL,
+    --avis_id INTEGER NOT NULL,
     utilisateur INTEGER NOT NULL,
-    type_avis type_avis NOT NULL
+    type_avis type_avis NOT NULL,
+    CONSTRAINT chk_type_avis CHECK (type_avis IN ('concert', 'playlist', 'morceaux', 'groupes', 'artistes'))
 );
 
 CREATE TABLE Users(
@@ -64,6 +70,20 @@ CREATE TABLE Users(
     mdp VARCHAR(50) NOT NULL,
     date_inscription DATE NOT NULL,
     tag INTEGER,
+    CONSTRAINT chk_mdp CHECK (pseudo <> mdp),
+    FOREIGN KEY (tag) REFERENCES Tags(tid)
+);
+
+CREATE TABLE Groupes(
+    gid SERIAL PRIMARY KEY,
+    utilisateur INTEGER NOT NULL,
+    type_user type_user NOT NULL,
+    pseudo VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    mdp VARCHAR(50) NOT NULL,
+    date_inscription DATE NOT NULL,
+    tag INTEGER,
+    Avis INTEGER,
     CONSTRAINT chk_mdp CHECK (pseudo <> mdp),
     FOREIGN KEY (tag) REFERENCES Tags(tid)
 );
@@ -135,17 +155,19 @@ CREATE TABLE Archiver
 CREATE TABLE Archive
 (
     aid SERIAL PRIMARY KEY,
-    cid INTEGER NOT NULL,
+    concert INTEGER NOT NULL,
     lieu varchar(50) NOT NULL,
     prix INTEGER CHECK(Prix > 0) NOT NULL,
     organisateurs INTEGER NOT NULL,
-    lineup INTEGER NOT NULL,
+    lineup INTEGER,
     nb_places INTEGER CHECK(nb_places >= 0) NOT NULL,
     besoin_benevoles boolean NOT NULL,
     cause varchar(50) NOT NULL,
     exterieur boolean NOT NULL,
     enfants boolean NOT NULL,
-    FOREIGN KEY (cid) REFERENCES Concert(cid),
+    avis INTEGER,
+    date DATE NOT NULL,
+    FOREIGN KEY (concert) REFERENCES Concert(cid),
     FOREIGN KEY (lineup) REFERENCES Lineup(lid),
     FOREIGN KEY (organisateurs) REFERENCES Users(uid)
 );
@@ -230,20 +252,22 @@ CREATE TABLE TourneeDates (
 ALTER TABLE Lineup ADD CONSTRAINT fk_concert_id FOREIGN KEY (concert) REFERENCES Concert(cid);
 ALTER TABLE Lineup ADD CONSTRAINT fk_artiste FOREIGN KEY (artiste) REFERENCES Artistes(aid);
 
-ALTER TABLE Concert ADD CONSTRAINT fk_organisateurs FOREIGN KEY (Organisateurs) REFERENCES Users(uid);
+ALTER TABLE Concert ADD CONSTRAINT fk_organisateurs FOREIGN KEY (organisateurs) REFERENCES Users(uid);
 ALTER TABLE Concert ADD CONSTRAINT fk_avis FOREIGN KEY (Avis) REFERENCES Avis_Concert(aid);
 
-ALTER TABLE avis_concert ADD CONSTRAINT fk_concert FOREIGN KEY (concert) REFERENCES Concert(cid);
-ALTER TABLE avis_playlist ADD CONSTRAINT fk_playlist FOREIGN KEY (playlist) REFERENCES Playlist(pid);
-ALTER TABLE avis_morceaux ADD CONSTRAINT fk_morceau FOREIGN KEY (morceau) REFERENCES Morceaux(mid);
+ALTER TABLE Avis_concert ADD CONSTRAINT fk_concert FOREIGN KEY (concert) REFERENCES Concert(cid);
+ALTER TABLE Avis_playlist ADD CONSTRAINT fk_playlist FOREIGN KEY (playlist) REFERENCES Playlist(pid);
+ALTER TABLE Avis_morceaux ADD CONSTRAINT fk_morceau FOREIGN KEY (morceau) REFERENCES Morceaux(mid);
 
 --- TODO : ajouter une table pour les groupes
 --ALTER TABLE avis_groupes ADD CONSTRAINT fk_groupe FOREIGN KEY (groupe) REFERENCES Groupes(gid);
 
-ALTER TABLE avis_artistes ADD CONSTRAINT fk_artiste FOREIGN KEY (artiste) REFERENCES Artistes(aid);
+ALTER TABLE Avis_artistes ADD CONSTRAINT fk_artiste FOREIGN KEY (artiste) REFERENCES Artistes(aid);
 
-ALTER TABLE avis_concert ADD CONSTRAINT fk_utilisateur_concert FOREIGN KEY (utilisateur) REFERENCES Users(uid);
-ALTER TABLE avis_playlist ADD CONSTRAINT fk_utilisateur_playlist FOREIGN KEY (utilisateur) REFERENCES Users(uid);
-ALTER TABLE avis_morceaux ADD CONSTRAINT fk_utilisateur_morceau FOREIGN KEY (utilisateur) REFERENCES Users(uid);
-ALTER TABLE avis_groupes ADD CONSTRAINT fk_utilisateur_groupe FOREIGN KEY (utilisateur) REFERENCES Users(uid);
-ALTER TABLE avis_artistes ADD CONSTRAINT fk_utilisateur_artiste FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Avis_Concert ADD CONSTRAINT fk_utilisateur_concert FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Avis_Playlist ADD CONSTRAINT fk_utilisateur_playlist FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Avis_Morceaux ADD CONSTRAINT fk_utilisateur_morceau FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Avis_Groupes ADD CONSTRAINT fk_utilisateur_groupe FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Avis_Artistes ADD CONSTRAINT fk_utilisateur_artiste FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Groupes ADD CONSTRAINT fk_utilisateur_groupe FOREIGN KEY (utilisateur) REFERENCES Users(uid);
+ALTER TABLE Groupes ADD CONSTRAINT fk_avis_groupe FOREIGN KEY (Avis) REFERENCES Avis_Groupes(aid);

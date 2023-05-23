@@ -30,7 +30,7 @@ INSERT INTO Sous_genre (genre1, genre2) VALUES
 (16, 17),
 (17, 18);
 
-INSERT INTO Tags (Tag) VALUES
+INSERT INTO Tags (nom_tag) VALUES
 ('musiclover'),
 ('concerts'),
 ('livemusic'),
@@ -47,76 +47,76 @@ INSERT INTO Tags (Tag) VALUES
 ('rapmusic'),
 ('musictheory');
 
-INSERT INTO Tags (Tag) SELECT genre FROM Genre;
+INSERT INTO Tags (nom_tag) SELECT genre FROM Genre;
 
 INSERT INTO Users (type_user, pseudo, email, mdp, date_inscription, tag) values
-('particulier', 'Alexandre', 'alexandre.diamant@etu-u-paris.fr', '9ofQCSLgOlQ', '2021-10-30', NULL),
-('particulier', 'Yahya', 'yahya.hamdi@etu-u-paris.fr', '2LPEMYZv', '2021-11-17', NULL),
-('groupes', 'AC/DC', 'imaso2@homestead.com', 'Q7faQqWM', '2020-04-04', NULL),
+('particulier', 'Alexandre', 'alexandre.diamant@etu-u-paris.fr', '9ofQCSLgOlQ', '2021-10-30', 1),
+('particulier', 'Yahya', 'yahya.hamdi@etu-u-paris.fr', '2LPEMYZv', '2021-11-17', 4),
+('groupe', 'AC/DC', 'imaso2@homestead.com', 'Q7faQqWM', '2020-04-04', 3),
 ('particulier', 'Dave', 'dnoriega3@upenn.edu', 'Ekh80s3X5', '2021-04-03', NULL),
-('association', 'Cleon', 'ccolum4@guardian.co.uk', 'wg7wZQg1', '2022-07-12', NULL), 
+('association', 'Cleon', 'ccolum4@guardian.co.uk', 'wg7wZQg1', '2022-07-12', 33), 
 ('particulier', 'Hillary', 'hlawleff5@mit.edu', 'zY80Kydrv', '2020-04-15', NULL), 
-('association', 'Live Nation', 'gsenter1@freewebs.com', 'eSYBJX3t87', '2023-04-03', NULL),
-('association', 'Le Transbordeur', 'bwickwar2@twitter.com', 'C6oowhEJ', '2022-09-08', NULL),
-('association', 'Olympique de Marseille', 'ngrichukhin3@quantcast.com', 'YjphukW', '2020-11-15', NULL),
-('association', 'Festival Les Siestes Electroniques', 'fillingworth4@economist.com', 'MF9xhTvieB7k', '2022-12-15',NULL),
-('association', 'La Nuit de l''Erdre', 'bgoaks6@fotki.com', 'IMqC6HscFf', '2022-04-05',NULL),
-('association', 'Hellfest Productions', 'bpatters7@intel.com', 'u7AZ1k3', '2021-11-03',NULL),
-('association', 'European Youth Orchestra', 'srudolph8@gov.uk', 'aiXHYtMJ2vXB', '2022-04-16', NULL),
-('association', 'Les Estivales de Montpellier', 'flaughtisse9@cdc.gov', 'OVO0KewwWLCy', '2023-02-09', NULL),
-('association', 'Rock School Barbey', 'cprotheroa@umn.edu', 'YgVSg3G2', '2022-02-10', NULL),
-('association', 'Aéronef', 'lgumaryb@smh.com.au', 'BbP606', '2020-09-16', NULL),
-('association', 'Festival Mythos', 'fdannehlc@indiegogo.com', 'QpxGeCUlfbf', '2022-10-25', NULL),
-('association', 'Les Flâneries Musicales de Reims', 'mtregenzad@mozilla.org', 'WEtEdXcfZ0Hr', '2020-01-08', NULL),
-('association', 'Fête de la Musique', 'rshepearde@eventbrite.com', 'SliyHBcd', '2021-04-17', NULL),
-('association', 'Festival Paroles et Musiques', 'btapton0@cbslocal.com', 'HgV0lbY', '2022-10-16', NULL),
-('association', 'Le Summum', 'aianilli1@wikimedia.org', '56yCsUheqg1I', '2021-09-12', NULL),
-('groupes', 'abarclay0', 'gcannan0@ycombinator.com', 'qvAQm752Fen', '2020-03-19', NULL),
-('artiste', 'cwestall1', 'tmccurlye1@php.net', 'UzuiyyQ', '2021-07-08', NULL),
-('particulier', 'wbernhardi2', 'shuton2@last.fm', 'nJlPCyvDRLFd', '2022-08-08', NULL),
-('artiste', 'zhackinge3', 'jmaraga3@mac.com', 'VNmD2GcPO2nW', '2021-05-21', NULL),
-('association', 'tprinne4', 'mlongthorn4@google.com.hk', 'smfOTK84ZO3', '2020-06-24', NULL),
+('association', 'Live Nation', 'gsenter1@freewebs.com', 'eSYBJX3t87', '2023-04-03', 2),
+('association', 'Le Transbordeur', 'bwickwar2@twitter.com', 'C6oowhEJ', '2022-09-08', 2),
+('association', 'Olympique de Marseille', 'ngrichukhin3@quantcast.com', 'YjphukW', '2020-11-15', 2),
+('association', 'Festival Les Siestes Electroniques', 'fillingworth4@economist.com', 'MF9xhTvieB7k', '2022-12-15',2),
+('association', 'La Nuit de l''Erdre', 'bgoaks6@fotki.com', 'IMqC6HscFf', '2022-04-05',2),
+('association', 'Hellfest Productions', 'bpatters7@intel.com', 'u7AZ1k3', '2021-11-03',2),
+('association', 'European Youth Orchestra', 'srudolph8@gov.uk', 'aiXHYtMJ2vXB', '2022-04-16', 2),
+('association', 'Les Estivales de Montpellier', 'flaughtisse9@cdc.gov', 'OVO0KewwWLCy', '2023-02-09', 2),
+('association', 'Rock School Barbey', 'cprotheroa@umn.edu', 'YgVSg3G2', '2022-02-10', 2),
+('association', 'Aéronef', 'lgumaryb@smh.com.au', 'BbP606', '2020-09-16', 2),
+('association', 'Festival Mythos', 'fdannehlc@indiegogo.com', 'QpxGeCUlfbf', '2022-10-25', 2),
+('association', 'Les Flâneries Musicales de Reims', 'mtregenzad@mozilla.org', 'WEtEdXcfZ0Hr', '2020-01-08', 2),
+('association', 'Fête de la Musique', 'rshepearde@eventbrite.com', 'SliyHBcd', '2021-04-17', 2),
+('association', 'Festival Paroles et Musiques', 'btapton0@cbslocal.com', 'HgV0lbY', '2022-10-16', 2),
+('association', 'Le Summum', 'aianilli1@wikimedia.org', '56yCsUheqg1I', '2021-09-12', 2),
+('groupe', 'abarclay0', 'gcannan0@ycombinator.com', 'qvAQm752Fen', '2020-03-19', 4),
+('artiste', 'cwestall1', 'tmccurlye1@php.net', 'UzuiyyQ', '2021-07-08', 4),
+('particulier', 'wbernhardi2', 'shuton2@last.fm', 'nJlPCyvDRLFd', '2022-08-08', 1),
+('artiste', 'zhackinge3', 'jmaraga3@mac.com', 'VNmD2GcPO2nW', '2021-05-21', 4),
+('association', 'tprinne4', 'mlongthorn4@google.com.hk', 'smfOTK84ZO3', '2020-06-24', 6),
 ('association', 'proskelley5', 'rswigger5@marriott.com', 'f6Bg75VInS', '2021-08-14', NULL),
-('association', 'omee6', 'apaskell6@reverbnation.com', '0nm64oBjqNG3', '2020-07-27', NULL),
+('association', 'omee6', 'apaskell6@reverbnation.com', '0nm64oBjqNG3', '2020-07-27', 33),
 ('artiste', 'bbourcq7', 'jsuggitt7@theglobeandmail.com', 'MoKKQPUTTs', '2022-05-12', NULL),
 ('artiste', 'lmacdearmaid8', 'swilliscroft8@wordpress.org', 's8F6H3W3vH', '2022-06-26', NULL),
-('groupes', 'dsarl9', 'hgoncalo9@hugedomains.com', '3GzpIwL', '2020-06-08', NULL),
-('particulier', 'iharversona', 'jpiotrkowskia@jiathis.com', 'D1K5vQ', '2022-04-09', NULL),
+('groupe', 'dsarl9', 'hgoncalo9@hugedomains.com', '3GzpIwL', '2020-06-08', NULL),
+('particulier', 'iharversona', 'jpiotrkowskia@jiathis.com', 'D1K5vQ', '2022-04-09', 13),
 ('particulier', 'dladlowb', 'sspadollinib@weibo.com', 'cG4IuWvz301', '2022-02-27', NULL),
 ('particulier', 'skemeryc', 'edoughartiec@4shared.com', '3pcTSBAj010', '2020-11-03', NULL),
-('groupes', 'skuhneld', 'amallindined@icq.com', 'wJbFWka', '2023-04-03', NULL),
+('groupe', 'skuhneld', 'amallindined@icq.com', 'wJbFWka', '2023-04-03', NULL),
 ('association', 'kpetterse', 'sguenthere@google.co.uk', 't8ZYxT', '2020-07-16', NULL),
 ('association', 'asiberyf', 'bondrichf@amazon.co.uk', 'zX244dG8qA', '2022-03-20', NULL),
-('association', 'gyurkovg', 'acudworthg@goo.ne.jp', 'kB4FK7ozlHO', '2020-03-03', NULL),
+('association', 'gyurkovg', 'acudworthg@goo.ne.jp', 'kB4FK7ozlHO', '2020-03-03', 33),
 ('particulier', 'bgaffneyh', 'nlewndenh@cornell.edu', 'ySQAjSs', '2022-12-21', NULL),
 ('association', 'plabitti', 'amccuddeni@e-recht24.de', 'U6UPs6A1bek', '2021-01-08', NULL),
-('groupes', 'cworsnupj', 'lmcveyj@sphinn.com', 'o20cDAN', '2022-08-19', NULL),
+('groupe', 'cworsnupj', 'lmcveyj@sphinn.com', 'o20cDAN', '2022-08-19', 13),
 ('association', 'cbaddeleyk', 'afrancescucciok@smugmug.com', 'PN1tQO7T7V', '2022-02-26', NULL),
 ('association', 'jkosl', 'hvittetl@dedecms.com', 'jn5hi3jui9sp', '2022-07-01', NULL),
 ('association', 'ddrakem', 'labrahartm@shutterfly.com', 'Nes2JH', '2022-09-08', NULL),
-('artiste', 'ehartlyn', 'hdellern@nature.com', 'z7aAOMIGQ', '2023-03-07', NULL),
-('association', 'bfidlero', 'hbaulcombeo@salon.com', 'VSp3g7OH', '2020-09-22', NULL),
+('artiste', 'ehartlyn', 'hdellern@nature.com', 'z7aAOMIGQ', '2023-03-07', 22),
+('association', 'bfidlero', 'hbaulcombeo@salon.com', 'VSp3g7OH', '2020-09-22', 22),
 ('particulier', 'ssichardtp', 'schrippesp@desdev.cn', 'PSO7hbH', '2021-12-31', NULL),
-('particulier', 'dalwenq', 'clanfearq@dagondesign.com', 'VMilLza', '2023-03-17', NULL),
-('particulier', 'jscrivnerr', 'lboggasr@4shared.com', 'XdgPFLzo5', '2021-01-12', NULL),
+('particulier', 'dalwenq', 'clanfearq@dagondesign.com', 'VMilLza', '2023-03-17', 13),
+('particulier', 'jscrivnerr', 'lboggasr@4shared.com', 'XdgPFLzo5', '2021-01-12', 33),
 ('association', 'kingeriths', 'trosenfelts@yellowpages.com', 'UgfNb9oK', '2021-02-23', NULL),
-('groupes', 'pdenmeadt', 'nroubottomt@noaa.gov', 'KOhIGSWCA', '2022-11-19', NULL),
+('groupe', 'pdenmeadt', 'nroubottomt@noaa.gov', 'KOhIGSWCA', '2022-11-19', NULL),
 ('particulier', 'mraviliousu', 'emarleyu@themeforest.net', 'gMuZ7lWkg', '2021-09-12', NULL),
 ('association', 'afyldesv', 'dplayfootv@reference.com', '6XBQOt', '2021-10-28', NULL),
-('particulier', 'trupertw', 'iromaw@scientificamerican.com', 'VX39Qlh6', '2023-03-14', NULL),
+('particulier', 'trupertw', 'iromaw@scientificamerican.com', 'VX39Qlh6', '2023-03-14', 33),
 ('association', 'tgironx', 'gmacnockaterx@cbslocal.com', 'fD2BqDa', '2021-08-02', NULL),
 ('association', 'nzorroy', 'prouty@instagram.com', 'JkVVAcW', '2020-10-17', NULL),
-('artiste', 'mfontesz', 'abaldazziz@upenn.edu', 'lZjEEk', '2022-11-25', NULL),
+('artiste', 'mfontesz', 'abaldazziz@upenn.edu', 'lZjEEk', '2022-11-25', 33),
 ('particulier', 'rgraybeal10', 'zivett10@hubpages.com', 'wx6O5EnZM7CY', '2022-08-20', NULL),
 ('association', 'dnaisey11', 'akenninghan11@amazon.com', '3HW9kF3mong', '2021-01-14', NULL),
 ('particulier', 'gpym12', 'rmotion12@behance.net', 'K9BtX4S5X', '2021-03-24', NULL),
 ('particulier', 'mheminsley13', 'dcoaten13@tripadvisor.com', '7QsIF8', '2022-03-20', NULL),
-('particulier', 'dsweetzer14', 'hwilshere14@smugmug.com', '12tODrWJbR', '2022-04-01', NULL),
+('particulier', 'dsweetzer14', 'hwilshere14@smugmug.com', '12tODrWJbR', '2022-04-01', 13),
 ('association', 'emaclean15', 'rbatie15@paypal.com', 'wo2bkUEcx', '2020-09-18', NULL),
 ('association', 'aburch16', 'gduggon16@opensource.org', '3xds1XeFT44w', '2021-01-30', NULL),
 ('association', 'bpapps17', 'sewles17@sfgate.com', 'nkAdnb4FMxw', '2021-08-20', NULL),
-('groupes', 'dellingworth18', 'twalles18@mediafire.com', 'S2jVdsm8t', '2022-05-06', NULL),
-('groupes', 'epaolazzi19', 'cmacshirie19@sfgate.com', 'tVAB4Y', '2020-01-05', NULL),
+('groupe', 'dellingworth18', 'twalles18@mediafire.com', 'S2jVdsm8t', '2022-05-06', 22),
+('groupe', 'epaolazzi19', 'cmacshirie19@sfgate.com', 'tVAB4Y', '2020-01-05', 22),
 ('artiste', 'ecaen1a', 'gdemonge1a@tripadvisor.com', 'Pw6MGfrO', '2020-06-25', NULL),
 ('artiste', 'gickowics1b', 'cwillatt1b@dyndns.org', 'sIWOdbgW', '2021-05-25', NULL),
 ('artiste', 'cbyas1c', 'abraghini1c@cafepress.com', 'MwTZ8o9cnpq', '2020-11-05', NULL),
@@ -127,17 +127,17 @@ INSERT INTO Users (type_user, pseudo, email, mdp, date_inscription, tag) values
 ('particulier', 'npairpoint1h', 'bbelfelt1h@ox.ac.uk', '6i6WwVvw1', '2021-01-23', NULL),
 ('artiste', 'sbyfield1i', 'tbyas1i@washingtonpost.com', 'M4i5eUcd', '2021-06-11', NULL),
 ('association', 'shassall1j', 'asergison1j@sciencedirect.com', '4Q1appQajq', '2021-01-25', NULL),
-('particulier', 'tbysshe1k', 'bibbett1k@desdev.cn', 'wEGrDY3h', '2023-01-22', NULL),
-('artiste', 'tpautot1l', 'bharvey1l@netscape.com', 'gtOB1u1QJ', '2022-05-17', NULL),
-('artiste', 'hliverseege1m', 'mmacon1m@wunderground.com', 'RYDxBLZMm', '2022-06-30', NULL),
+('particulier', 'tbysshe1k', 'bibbett1k@desdev.cn', 'wEGrDY3h', '2023-01-22', 33),
+('artiste', 'tpautot1l', 'bharvey1l@netscape.com', 'gtOB1u1QJ', '2022-05-17', 33),
+('artiste', 'hliverseege1m', 'mmacon1m@wunderground.com', 'RYDxBLZMm', '2022-06-30', 33),
 ('artiste', 'shaw1n', 'linkle1n@constantcontact.com', '6PmsuS7UqWWb', '2021-05-21', NULL),
-('groupes', 'amacleese1o', 'hjoberne1o@umn.edu', 'dvkQuXzAgL', '2021-09-21', NULL),
+('groupe', 'amacleese1o', 'hjoberne1o@umn.edu', 'dvkQuXzAgL', '2021-09-21', NULL),
 ('artiste', 'aroback1p', 'hmoodie1p@people.com.cn', '1LA7L2bmETE', '2023-01-15', NULL),
 ('artiste', 'iscaplehorn1q', 'sbeetham1q@washington.edu', 'unqqyKWySih', '2020-06-23', NULL),
 ('particulier', 'spandya1r', 'dhealks1r@sbwire.com', 'NdYNTQti4lZE', '2020-05-06', NULL),
 ('artiste', 'bflatley1s', 'khune1s@jalbum.net', 'fYLSmDn', '2021-08-09', NULL),
 ('artiste', 'cgarrison1t', 'bseleway1t@mashable.com', 'FfhBa8', '2021-05-05', NULL),
-('groupes', 'nwayland1u', 'ckornalik1u@wp.com', 'VxtJbch', '2021-10-27', NULL),
+('groupe', 'nwayland1u', 'ckornalik1u@wp.com', 'VxtJbch', '2021-10-27', 33),
 ('artiste', 'jsmullen1v', 'cbrevetor1v@nps.gov', 'P2XtWG3t86', '2022-09-05', NULL),
 ('artiste', 'cgueinn1w', 'lcasson1w@mapquest.com', 'oiHenVBBp7O', '2021-07-20', NULL),
 ('artiste', 'ccoxen1x', 'cmcavaddy1x@rakuten.co.jp', 'KyTyyraRwh', '2022-04-16', NULL),
@@ -146,11 +146,11 @@ INSERT INTO Users (type_user, pseudo, email, mdp, date_inscription, tag) values
 ('particulier', 'cmarks20', 'mkondratyuk20@nydailynews.com', 'PK5ou8VKy', '2020-12-02', NULL),
 ('association', 'cdoag21', 'fdanby21@elegantthemes.com', 'pfpF6o', '2020-11-21', NULL),
 ('association', 'fsummerly22', 'fethelstone22@mozilla.org', 'fsYTmtO2B', '2023-04-15', NULL),
-('artiste', 'nrawlins23', 'jbuche23@phpbb.com', 'EDbSEOG', '2020-08-21', NULL),
+('artiste', 'nrawlins23', 'jbuche23@phpbb.com', 'EDbSEOG', '2020-08-21', 33),
 ('association', 'mrummer24', 'sbootman24@hc360.com', 'EECXNE', '2021-07-12', NULL),
 ('association', 'mwhitely25', 'xdiwell25@nyu.edu', 'T85eBVS', '2021-10-30', NULL),
 ('particulier', 'bdyson26', 'rmariyushkin26@si.edu', 'm1p7iU', '2023-02-20', NULL),
-('groupes', 'wfatharly27', 'canan27@foxnews.com', 'WUlDcrqlEu7', '2022-12-05', NULL),
+('groupe', 'wfatharly27', 'canan27@foxnews.com', 'WUlDcrqlEu7', '2022-12-05', NULL),
 ('association', 'qludlam28', 'tsalters28@jigsy.com', 'wMAGdLsuI', '2022-10-20', NULL),
 ('association', 'cfoye29', 'gferebee29@angelfire.com', 'vr8n0zlVL', '2020-02-22', NULL),
 ('association', 'bivankin2a', 'ccatto2a@ow.ly', 'INFTS6U6uW9', '2021-07-17', NULL),
@@ -159,17 +159,17 @@ INSERT INTO Users (type_user, pseudo, email, mdp, date_inscription, tag) values
 ('association', 'ljacop2d', 'vgallemore2d@indiegogo.com', 'dXrAsx', '2021-01-05', NULL),
 ('artiste', 'ggoodinge2e', 'mswigger2e@yandex.ru', 'yst01e928S', '2021-07-29', NULL),
 ('artiste', 'cdeancywillis2f', 'jgidman2f@soup.io', 'L8k9OxVWkrqn', '2020-01-09', NULL),
-('particulier', 'balenov2g', 'feverest2g@vkontakte.ru', 'CC6KyL', '2022-07-10', NULL),
-('groupes', 'gdyble2h', 'dsturzaker2h@wisc.edu', 'avPX47n1vQ', '2020-02-18', NULL),
+('particulier', 'balenov2g', 'feverest2g@vkontakte.ru', 'CC6KyL', '2022-07-10', 33),
+('groupe', 'gdyble2h', 'dsturzaker2h@wisc.edu', 'avPX47n1vQ', '2020-02-18', 33),
 ('artiste', 'ltravers2i', 'jmack2i@so-net.ne.jp', 'B9RcRm59W', '2020-03-04', NULL),
 ('artiste', 'lchenery2j', 'tgamwell2j@godaddy.com', 'hVHVVyE', '2021-10-23', NULL),
 ('artiste', 'kfoux2k', 'apavese2k@wikispaces.com', 'cSAfTw0', '2022-05-03', NULL),
 ('particulier', 'vpender2l', 'nkalberer2l@economist.com', 'dSyCiw5G', '2021-04-13', NULL),
 ('association', 'jmartynikhin2m', 'dludy2m@people.com.cn', 'JXvMYDUMq6', '2021-03-31', NULL),
 ('artiste', 'hbroddle2n', 'rsproule2n@domainmarket.com', '19qPVs', '2021-03-02', NULL),
-('groupes', 'obernhardt2o', 'abenford2o@twitter.com', 'bphVwSTsfzC8', '2022-09-09', NULL),
-('groupes', 'rpiquard2p', 'gmccumskay2p@linkedin.com', 'V73CjIWdD', '2021-11-07', NULL),
-('association', 'lscogings2q', 'smatton2q@topsy.com', 'UuoaxapY', '2022-05-22', NULL),
+('groupe', 'obernhardt2o', 'abenford2o@twitter.com', 'bphVwSTsfzC8', '2022-09-09', NULL),
+('groupe', 'rpiquard2p', 'gmccumskay2p@linkedin.com', 'V73CjIWdD', '2021-11-07', NULL),
+('association', 'lscogings2q', 'smatton2q@topsy.com', 'UuoaxapY', '2022-05-22', 33),
 ('artiste', 'ktregea2r', 'lhathwood2r@sbwire.com', 'kZGkt3ONHDb', '2022-12-18', NULL);
 
 
@@ -358,6 +358,9 @@ INSERT INTO Playlist (utilisateur, nom, nb_morceaux, avis) VALUES
 (33, 'Musique pour le sport', 10, NULL),
 (34, 'Musique pour étudier', 8, NULL);
 
+INSERT INTO Create_playlist(pid,uid)
+SELECT pid, utilisateur FROM Playlist;
+
 ---Playlist_Morceaux ---
 INSERT INTO Playlist_Morceaux (pid, mid) VALUES
 (1, 1), (1, 3), (1, 5), (1, 7), (1, 9),
@@ -409,40 +412,40 @@ INSERT INTO Avis_Playlist (playlist,utilisateur,note, commentaire) VALUES
 ( 3,2,5, 'J''adore tous les morceaux de cette playlist!');
 
 --Avis_Morceaux---
-INSERT INTO Avis_Morceaux (note, commentaire) VALUES
-(,4, 'Très bon morceau, je le recommande !'),
-(3, 'Sympathique, mais sans plus.'),
-(5, 'Le meilleur morceau de l''album, une vraie pépite !'),
-(2, 'Décevant, je m''attendais à mieux.'),
-(1, 'Nul, je ne comprends pas pourquoi il est sur l''album.'),
-(4, 'Un morceau qui met de bonne humeur, parfait pour commencer la journée.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque écoute.'),
-(2, 'Mauvais, j''ai vite zappé ce morceau.'),
-(1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
-(4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque écoute.'),
-(2, 'Mauvais, j''ai vite zappé ce morceau.'),
-(1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
-(4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque écoute.'),
-(2, 'Mauvais, j''ai vite zappé ce morceau.'),
-(1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
-(4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque écoute.'),
-(2, 'Mauvais, j''ai vite zappé ce morceau.'),
-(1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
-(4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque écoute.'),
-(2, 'Mauvais, j''ai vite zappé ce morceau.'),
-(1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
-(4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
-(3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
-(5, 'Sublime, il me donne des frissons à chaque fois');
+INSERT INTO Avis_Morceaux (morceau, utilisateur, note, commentaire) VALUES
+(2,32,4, 'Très bon morceau, je le recommande !'),
+(7,82,3, 'Sympathique, mais sans plus.'),
+(8,43,5, 'Le meilleur morceau de l''album, une vraie pépite !'),
+(5,66,2, 'Décevant, je m''attendais à mieux.'),
+(1,100,1, 'Nul, je ne comprends pas pourquoi il est sur l''album.'),
+(12,76,4, 'Un morceau qui met de bonne humeur, parfait pour commencer la journée.'),
+(30,29,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(14,40,5, 'Sublime, il me donne des frissons à chaque écoute.'),
+(18,29,2, 'Mauvais, j''ai vite zappé ce morceau.'),
+(32,74,1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
+(28,81,4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
+(22,22,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(11,31,5, 'Sublime, il me donne des frissons à chaque écoute.'),
+(12,42,2, 'Mauvais, j''ai vite zappé ce morceau.'),
+(5,66,1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
+(35,92,4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
+(6,67,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(21,90,5, 'Sublime, il me donne des frissons à chaque écoute.'),
+(33,13,2, 'Mauvais, j''ai vite zappé ce morceau.'),
+(32,120,1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
+(36,43,4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
+(17,78,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(10,100,5, 'Sublime, il me donne des frissons à chaque écoute.'),
+(13,95,2, 'Mauvais, j''ai vite zappé ce morceau.'),
+(32,2,1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
+(27,89,4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
+(25,3,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(34,24,5, 'Sublime, il me donne des frissons à chaque écoute.'),
+(3,82,2, 'Mauvais, j''ai vite zappé ce morceau.'),
+(8,92,1, 'Affreux, je ne comprends pas comment il a pu être enregistré.'),
+(25,12,4, 'Un morceau qui donne la pêche, je l''écoute en boucle.'),
+(17,63,3, 'Pas mal, mais je préfère d''autres titres de l''artiste.'),
+(19,66,5, 'Sublime, il me donne des frissons à chaque fois');
 
 ---Avis "Artistes "---
 INSERT INTO Avis_Artistes (artiste, utilisateur, note, commentaire) VALUES
@@ -479,4 +482,83 @@ INSERT INTO Avis_Groupes (groupe, utilisateur, note, commentaire) VALUES
 (8,3,1, 'Je suis extrêmement déçu de leur dernier album. Je ne recommande pas.'),
 (9,3,2, 'Je trouve que leur musique manque de cohérence.'),
 (6,1,4, 'J''ai passé un bon moment lors de leur dernier concert.');
+
+UPDATE Playlist SET avis = Avis_Playlist.aid FROM Avis_Playlist WHERE Avis_Playlist.playlist = Playlist.pid;
+UPDATE Morceaux SET avis = Avis_Morceaux.aid FROM Avis_Morceaux WHERE Avis_Morceaux.morceau = morceaux.mid;
+UPDATE Artistes SET avis = Avis_Artistes.aid FROM Avis_Artistes WHERE Avis_Artistes.artiste = Artistes.aid;
+UPDATE Concert SET avis = Avis_Concert.aid FROM Avis_Concert WHERE Avis_Concert.concert = Concert.cid;
+
+INSERT INTO Groupes(utilisateur,type_user,pseudo,email,mdp,date_inscription,tag)
+SELECT * FROM Users WHERE type_user = 'groupe';
+
+UPDATE Groupes SET avis = Avis_Groupes.aid FROM Avis_Groupes WHERE Avis_Groupes.groupe = Groupes.gid;
+
+
+INSERT INTO Tournee (artiste, date_debut, date_fin) VALUES
+(1, '2023-06-01', '2023-06-10'),
+(2, '2023-06-15', '2023-06-20'),
+(3, '2023-07-01', '2023-07-05'),
+(4, '2023-07-10', '2023-07-20'),
+(5, '2023-08-01', '2023-08-10'),
+(6, '2023-08-15', '2023-08-20'),
+(7, '2023-09-01', '2023-09-05'),
+(8, '2023-09-10', '2023-09-20'),
+(9, '2023-10-01', '2023-10-10'),
+(10, '2023-10-15', '2023-10-20'),
+(11, '2023-11-01', '2023-11-05'),
+(12, '2023-11-10', '2023-11-20'),
+(13, '2023-12-01', '2023-12-10'),
+(14, '2023-12-15', '2023-12-20'),
+(15, '2024-01-01', '2024-01-05');
+
+INSERT INTO TourneeDates (tournee, concert, date) VALUES
+(1, 1, '2023-06-01'),
+(1, NULL, '2023-06-02'),
+(1, 2, '2023-06-03'),
+(1, 3, '2023-06-05'),
+(2, 4, '2023-06-15'),
+(2, 5, '2023-06-17'),
+(2, 6, '2023-06-19'),
+(3, 7, '2023-07-01'),
+(3, 8, '2023-07-03'),
+(3, 9, '2023-07-05'),
+(4, 10, '2023-07-10'),
+(4, 11, '2023-07-13'),
+(4, 12, '2023-07-15'),
+(5, 13, '2023-08-01'),
+(5, 14, '2023-08-04'),
+(5, 15, '2023-08-07'),
+(9, 2, '2023-06-03'),
+(9, 3, '2023-06-05'),
+(9, 4, '2023-06-15');
+
+
+INSERT INTO Archive (concert, lieu, prix, organisateurs, lineup, nb_places, besoin_benevoles, cause, exterieur, enfants, avis, date) VALUES
+(1, 'Paris', 25, 7, NULL,5000, true, 'Charity event for childrens hospital', false, true, NULL, '2022-01-01'),
+
+(5, 'Nice', 30, 11, NULL,5000, false, 'Outdoor music festival', true, true, NULL, '2022-05-01'),
+
+(7, 'Strasbourg', 18, 13, NULL,2500, false, 'Classical music concert', false, true, NULL, '2022-07-01'),
+
+(10, 'Lille', 17.5, 16, NULL,2500, true, 'Indie rock music festival', true, false, NULL, '2022-10-01'),
+
+(15, 'Grenoble', 14.5, 21, NULL,3000, true, 'Pop and electronic music festival', false, false, NULL, '2023-03-01');
+
+
+UPDATE Archive SET lineup = Lineup.concert FROM Lineup WHERE Lineup.concert = Archive.concert;
+UPDATE Archive SET avis = Avis_Concert.aid FROM Avis_Concert WHERE Avis_Concert.concert = Archive.concert;
+
+INSERT INTO Archiver (cid) VALUES(1),(5),(7),(10),(15);
+INSERT INTO Organise_concert (organisateurs) VALUES (7), (8), (28) ,(10), (11) ,(12), (13), (14), (15), (16), (17), (18), (19), (20), (21);
+
+INSERT INTO Avis(aid, utilisateur, type_avis)
+SELECT aid, utilisateur, type_avis FROM avis_groupes
+UNION
+SELECT aid, utilisateur, type_avis FROM avis_artistes
+UNION
+SELECT aid, utilisateur, type_avis FROM avis_morceaux
+UNION
+SELECT aid, utilisateur, type_avis FROM avis_concert
+UNION
+SELECT aid, utilisateur, type_avis FROM avis_playlist;
 
